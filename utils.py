@@ -1,31 +1,28 @@
+# utils.py
 import pygame
 from settings import WHITE, WIDTH
 
-# Mostrar el puntaje de ambos jugadores
-def show_scores(screen, score1, score2):
+# Mostrar el puntaje del jugador
+def show_scores(screen, score1):
     font = pygame.font.Font(None, 36)
-    text1 = font.render(f"Jugador 1 (Blanco): {score1}", True, WHITE)
-    text2 = font.render(f"Jugador 2 (Rojo): {score2}", True, WHITE)
+    text1 = font.render(f"Puntaje Jugador: {score1}", True, WHITE)
     
-    # Mostrar los puntajes en diferentes posiciones
-    screen.blit(text1, (10, 10))  # Jugador 1 a la izquierda
-    screen.blit(text2, (WIDTH - 300, 10))  # Jugador 2 a la derecha
+    # Mostrar el puntaje en la parte superior
+    screen.blit(text1, (10, 10))  # A la izquierda
 
-# Mostrar las vidas de ambos jugadores
-def show_lives(screen, lives1, lives2):
+# Mostrar las vidas del jugador
+def show_lives(screen, lives):
     font = pygame.font.Font(None, 36)
-    lives_text1 = font.render(f"Vidas Jugador 1: {lives1}", True, WHITE)
-    lives_text2 = font.render(f"Vidas Jugador 2: {lives2}", True, WHITE)
+    lives_text = font.render(f"Vidas Jugador: {lives}", True, WHITE)
     
-    # Mostrar las vidas en diferentes posiciones
-    screen.blit(lives_text1, (10, 50))  # Jugador 1 a la izquierda
-    screen.blit(lives_text2, (WIDTH - 300, 50))  # Jugador 2 a la derecha
+    # Mostrar las vidas en la parte superior
+    screen.blit(lives_text, (10, 50))  # A la izquierda
 
 # Mostrar mensaje de "Has perdido" y el botón "Jugar de nuevo"
-def show_game_over(screen, score1, score2):
+def show_game_over(screen, score):
     font = pygame.font.Font(None, 74)
     game_over_text = font.render("¡Has perdido!", True, WHITE)
-    score_text = font.render(f"Puntaje Jugador 1: {score1} | Puntaje Jugador 2: {score2}", True, WHITE)
+    score_text = font.render(f"Puntaje: {score}", True, WHITE)
 
     # Posicionar el texto en el centro de la pantalla
     screen.blit(game_over_text, (screen.get_width() // 2 - game_over_text.get_width() // 2, screen.get_height() // 2 - 100))
